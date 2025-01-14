@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LUDO</title>
+  <link rel="stylesheet" type="text/css" href="assets/css/main.css">
+</head>
+<body>
+  <div class="game-container">
+    <table class="ludo-container">
+      <tr>
+        <td colspan="6" rowspan="6" class="home-container bg-red" id="home-red">
+          <div class="goat-container">
+            <div class="goat-box">
+              <div class="goat">
+                <button class="goat-btn goat-red goat-red-1"></button>
+              </div>
+            </div>
+            <div class="goat-box">
+              <div class="goat">
+                <button class="goat-btn goat-red goat-red-2"></button>
+              </div>
+            </div>
+            <div class="goat-box">
+              <div class="goat">
+                <button class="goat-btn goat-red goat-red-3"></button>
+              </div>
+            </div>
+            <div class="goat-box">
+              <div class="goat">
+                <button class="goat-btn goat-red goat-red-4"></button>
+              </div>
+            </div>
+          </div>
+        </td>
+        <td id="be1"></td>
+        <td id="bc1" class="turn-blue"></td>
+        <td id="bs1"></td>
+        <td colspan="6" rowspan="6" class="home-container bg-blue" id="home-blue">
+          <div class="goat-container">
+            <div class="goat-box">
+              <div class="goat">
+                <button class="goat-btn goat-blue goat-blue-1"></button>
+              </div>
+            </div>
+            <div class="goat-box">
+              <div class="goat">
+                <button class="goat-btn goat-blue goat-blue-2"></button>
+              </div>
+            </div>
+            <div class="goat-box">
+              <div class="goat">
+                <button class="goat-btn goat-blue goat-blue-3"></button>
+              </div>
+            </div>
+            <div class="goat-box">
+              <div class="goat">
+                <button class="goat-btn goat-blue goat-blue-4"></button>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td id="be2"></td>
+        <td id="bc2" class="bg-blue"></td>
+        <td id="bs2" class="bg-blue safe-zone"></td>
+      </tr>
+      <tr>
+        <td id="be3" class="bg-blue safe-zone"></td>
+        <td id="bc3" class="bg-blue"></td>
+        <td id="bs3"></td>
+      </tr>
+      <tr>
+        <td id="be4"></td>
+        <td id="bc4" class="bg-blue"></td>
+        <td id="bs4"></td>
+      </tr>
+      <tr>
+        <td id="be5"></td>
+        <td id="bc5" class="bg-blue"></td>
+        <td id="bs5"></td>
+      </tr>
+      <tr>
+        <td id="be6"></td>
+        <td id="bc6" class="bg-blue"></td>
+        <td id="bs6"></td>
+      </tr>
+      <tr>
+        <td id="rs1"></td>
+        <td id="rs2" class="bg-red safe-zone"></td>
+        <td id="rs3"></td>
+        <td id="rs4"></td>
+        <td id="rs5"></td>
+        <td id="rs6" ></td>
+        <td colspan="3" rowspan="3" class="bg-black">
+          <div class="dice-container">
+            <img src="assets/images/dice/1.png" class="dice-img" onclick="diceRoll()">
+          </div>
+        </td>
+        <td id="ye6"></td>
+        <td id="ye5"></td>
+        <td id="ye4"></td>
+        <td id="ye3" class="bg-yellow safe-zone"></td>
+        <td id="ye2"></td>
+        <td id="ye1"></td>
+      </tr>
+      <tr>
+        <td id="rc1" class="turn-red"></td>
+        <td id="rc2" class="bg-red"></td>
+        <td id="rc3" class="bg-red"></td>
+        <td id="rc4" class="bg-red"></td>
+        <td id="rc5" class="bg-red"></td>
+        <td id="rc6" class="bg-red"></td>
+        <td id="yc6" class="bg-yellow"></td>
+        <td id="yc5" class="bg-yellow"></td>
+        <td id="yc4" class="bg-yellow"></td>
+        <td id="yc3" class="bg-yellow"></td>
+        <td id="yc2" class="bg-yellow"></td>
+        <td id="yc1" class="turn-yellow"></td>
+      </tr>
+      <tr>
+        <td id="re1"></td>
+        <td id="re2"></td>
+        <td id="re3" class="bg-red safe-zone"></td>
+        <td id="re4"></td>
+        <td id="re5"></td>
+        <td id="re6"></td>
+        <td id="ys6"></td>
+        <td id="ys5"></td>
+        <td id="ys4"></td>
+        <td id="ys3"></td>
+        <td id="ys2" class="bg-yellow safe-zone"></td>
+        <td id="ys1"></td>
+      </tr>
+      <tr>
+        <td colspan="6" rowspan="6" class="home-container bg-green" id="home-green">
+          <div class="goat-container">
+            <div class="goat-box">
+              <div class="goat">
+                <button class="goat-btn goat-green goat-green-1"></button>
+              </div>
+            </div>
+            <div class="goat-box">
+              <div class="goat">
+                <button class="goat-btn goat-green goat-green-2"></button>
+              </div>
+            </div>
+            <div class="goat-box">
+              <div class="goat">
+                <button class="goat-btn goat-green goat-green-3"></button>
+              </div>
+            </div>
+            <div class="goat-box">
+              <div class="goat">
+                <button class="goat-btn goat-green goat-green-4"></button>
+              </div>
+            </div>
+          </div>
+        </td>
+        <td id="gs6"></td>
+        <td id="gc6" class="bg-green"></td>
+        <td id="ge6"></td>
+        <td colspan="6" rowspan="6" class="home-container bg-yellow" id="home-yellow">
+          <div class="goat-container">
+            <div class="goat-box">
+              <div class="goat">
+                <button class="goat-btn goat-yellow goat-yellow-1"></button>
+              </div>
+            </div>
+            <div class="goat-box">
+              <div class="goat">
+                <button class="goat-btn goat-yellow goat-yellow-2"></button>
+              </div>
+            </div>
+            <div class="goat-box">
+              <div class="goat">
+                <button class="goat-btn goat-yellow goat-yellow-3"></button>
+              </div>
+            </div>
+            <div class="goat-box">
+              <div class="goat">
+                <button class="goat-btn goat-yellow goat-yellow-4"></button>
+              </div>
+            </div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td id="gs5"></td>
+        <td id="gc5" class="bg-green"></td>
+        <td id="ge5"></td>
+      </tr>
+      <tr>
+        <td id="gs4"></td>
+        <td id="gc4" class="bg-green"></td>
+        <td id="ge4"></td>
+      </tr>
+      <tr>
+        <td id="gs3"></td>
+        <td id="gc3" class="bg-green"></td>
+        <td id="ge3" class="bg-green safe-zone"></td>
+      </tr>
+      <tr>
+        <td id="gs2" class="bg-green safe-zone"></td>
+        <td id="gc2" class="bg-green"></td>
+        <td id="ge2"></td>
+      </tr>
+      <tr>
+        <td id="gs1"></td>
+        <td id="gc1" class="turn-green"></td>
+        <td id="ge1"></td>
+      </tr>
+    </table>
+    <div class="menu-container">
+      <div>
+        <button class="btn" onclick="startGame()">START</button>
+        <button class="btn" onclick="resetGame()">RESET</button>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="assets/js/main.js"></script>
+</body>
+</html>
