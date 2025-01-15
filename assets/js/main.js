@@ -122,8 +122,13 @@ function diceRoll() {
 }
 
 function moveGoat(e){
-  if(e.classList.value.includes(current_player)){
+  if(e.classList.value.includes(current_player) && e.classList.value.includes('active')){
+    
     let current_position = e.closest('td').id;
+    let current_index = player.route.indexOf(current_position);
+
+    // document.querySelector(`#${player.route[current_index + diceNumber]}`).innerHTML += `<button class="goat-btn goat-${current_player}" onclick="moveGoat(this)"></button>`;
+
     player.open.forEach(function(v, i){
       document.querySelector(`.${v}`).classList.remove('active');
     });
