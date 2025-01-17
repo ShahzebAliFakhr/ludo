@@ -1,7 +1,7 @@
+let dice = document.querySelector('.dice-img');
 let players = ['red', 'blue', 'yellow', 'green'];
 let currentPlayer = players[0];
 let diceNumber, player;
-let dice = document.querySelector('.dice-img');
 let gameStarted = false;
 let diceEnabled = false;
 
@@ -10,21 +10,25 @@ const playerData = {
     red: {
       close: ['goat-red-1', 'goat-red-2', 'goat-red-3', 'goat-red-4'],
       open: [],
+      win: [],
       route: ['rs2', 'rs3', 'rs4', 'rs5', 'rs6', 'be6', 'be5', 'be4', 'be3', 'be2', 'be1', 'bc1', 'bs1', 'bs2', 'bs3', 'bs4', 'bs5', 'bs6', 'bs4', 'ye6', 'ye5', 'ye4', 'ye3', 'ye2', 'ye1', 'yc1', 'ys1', 'ys2', 'ys3', 'ys4', 'ys5', 'ys6', 'ge6', 'ge5', 'ge4', 'ge3', 'ge2', 'ge1', 'gc1', 'gs1', 'gs2', 'gs3', 'gs4', 'gs5', 'gs6', 're6', 're5', 're4', 're3', 're2', 're1', 'rc1', 'rc2', 'rc3', 'rc4', 'rc5', 'rc6']
     },
     blue: {
       close: ['goat-blue-1', 'goat-blue-2', 'goat-blue-3', 'goat-blue-4'],
       open: [],
+      win: [],
       route: ['bs2', 'bs3', 'bs4', 'bs5', 'bs6', 'bs4', 'ye6', 'ye5', 'ye4', 'ye3', 'ye2', 'ye1', 'yc1', 'ys1', 'ys2', 'ys3', 'ys4', 'ys5', 'ys6', 'ge6', 'ge5', 'ge4', 'ge3', 'ge2', 'ge1', 'gc1', 'gs1', 'gs2', 'gs3', 'gs4', 'gs5', 'gs6', 're6', 're5', 're4', 're3', 're2', 're1', 'rc1', 'rs1', 'rs2', 'rs3', 'rs4', 'rs5', 'rs6', 'be6', 'be5', 'be4', 'be3', 'be2', 'be1', 'bc1', 'bc2', 'bc3', 'bc4', 'bc5', 'bc6']
     },
     yellow: {
       close: ['goat-yellow-1', 'goat-yellow-2', 'goat-yellow-3', 'goat-yellow-4'],
       open: [],
+      win: [],
       route: ['ys2', 'ys3', 'ys4', 'ys5', 'ys6', 'ge6', 'ge5', 'ge4', 'ge3', 'ge2', 'ge1', 'gc1', 'gs1', 'gs2', 'gs3', 'gs4', 'gs5', 'gs6', 're6', 're5', 're4', 're3', 're2', 're1', 'rc1', 'rs1', 'rs2', 'rs3', 'rs4', 'rs5', 'rs6', 'be6', 'be5', 'be4', 'be3', 'be2', 'be1', 'bc1', 'bs1', 'bs2', 'bs3', 'bs4', 'bs5', 'bs6', 'bs4', 'ye6', 'ye5', 'ye4', 'ye3', 'ye2', 'ye1', 'yc1', 'yc2', 'yc3', 'yc4', 'yc5', 'yc6']
     },
     green: {
       close: ['goat-green-1', 'goat-green-2', 'goat-green-3', 'goat-green-4'],
       open: [],
+      win: [],
       route: ['gs2', 'gs3', 'gs4', 'gs5', 'gs6', 're6', 're5', 're4', 're3', 're2', 're1', 'rc1', 'rs1', 'rs2', 'rs3', 'rs4', 'rs5', 'rs6', 'be6', 'be5', 'be4', 'be3', 'be2', 'be1', 'bc1', 'bs1', 'bs2', 'bs3', 'bs4', 'bs5', 'bs6', 'bs4', 'ye6', 'ye5', 'ye4', 'ye3', 'ye2', 'ye1', 'yc1', 'ys1', 'ys2', 'ys3', 'ys4', 'ys5', 'ys6', 'ge6', 'ge5', 'ge4', 'ge3', 'ge2', 'ge1', 'gc1', 'gc2', 'gc3', 'gc4', 'gc5', 'gc6']
     }
   },
@@ -110,8 +114,14 @@ function goatAction(e, action) {
       document.querySelector(`#${goatID}`).remove();
       document.querySelector(`#${playerData.players[currentPlayer].route[0]}`).innerHTML += `<button class="goat-btn goat-${currentPlayer}" id="${goatID}" onclick="goatAction(this, 'move')"></button>`;
     } else if (action === 'move') {
-      document.querySelector(`#${goatID}`).remove();
-      document.querySelector(`#${new_position}`).innerHTML += `<button class="goat-btn goat-${currentPlayer}" id="${goatID}" onclick="goatAction(this, 'move')"></button>`;
+
+      if(new_position){
+        document.querySelector(`#${goatID}`).remove();
+        document.querySelector(`#${new_position}`).innerHTML += `<button class="goat-btn goat-${currentPlayer}" id="${goatID}" onclick="goatAction(this, 'move')"></button>`;
+      }else{
+        alert('You can\nt play this goat.');
+      }
+      
     }
 
     playerData.removeHighlightGoats(playerData.players[currentPlayer].close);
